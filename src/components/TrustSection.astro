@@ -1,0 +1,171 @@
+---
+import shieldCheckImage from '../assets/ShieldCheck.png';
+import heartImage from '../assets/Heart.png';
+import compassImage from '../assets/Compass.png';
+import lockImage from '../assets/Lock.png';
+
+const features = [
+	{
+		icon: shieldCheckImage,
+		title: 'Verified & Safe',
+		description: 'Our industry-leading verification is mandatory for everyone. Whether you\'re a couple or a single, connect with confidence knowing every member is real.'
+	},
+	{
+		icon: heartImage,
+		title: 'Couple-Centric by Design',
+		description: 'Our platform is built to empower couples on their lifestyle journey. Vetted singles are welcome to join and connect.'
+	},
+	{
+		icon: compassImage,
+		title: 'Discover & Connect',
+		description: 'Find local swinger couples and singles, plan discreet meetups, or join exciting lifestyle events.'
+	},
+	{
+		icon: lockImage,
+		title: 'Total Privacy',
+		description: 'Your discretion is our priority. With private photo albums and robust privacy controls, you decide who sees what.'
+	},
+];
+---
+<section class="trust" id="trust">
+	<div class="trust-inner">
+		<div class="badge">
+			<span class="badge-dot"></span>
+			<span>Why Choose Us</span>
+		</div>
+		<h2 class="section-title">5,000 Couples <br/> Trust CoupleSwap.</h2>
+		<p class="section-description">
+			Real profiles, safer fun, no surprises—real, safe, and private.
+		</p>
+		<div class="features-grid">
+			{features.map((feature) => (
+				<div class="feature-card">
+					<div class="feature-icon-wrapper">
+						<img src={feature.icon.src} width="32" height="32" alt={feature.title} class="feature-icon" />
+					</div>
+					<h3 class="feature-title">{feature.title}</h3>
+					<p class="feature-description">{feature.description}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.trust {
+		padding: 4rem 1.5rem;
+		background: #0a0a0a;
+	}
+	.trust-inner {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+		background: #1a1520;
+		border-radius: 9999px;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: #fff;
+		margin-bottom: 1rem;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+	}
+	.badge-dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: #ec4899;
+	}
+	.trust .section-title {
+		margin: 0 0 1rem;
+		font-family: 'Inter', sans-serif;
+		font-weight: 700;
+		font-size: clamp(2rem, 5vw, 4rem);
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		text-align: center;
+		color: #fff;
+	}
+	.section-description {
+		margin: 0 0 4rem;
+		font-family: 'Inter', sans-serif;
+		font-weight: 400;
+		font-size: 1.125rem;
+		line-height: 1.6;
+		text-align: center;
+		color: rgba(255, 255, 255, 0.8);
+		max-width: 600px;
+	}
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.5rem;
+		width: 100%;
+	}
+	.feature-card {
+		background: #FFFFFF05;
+		border: 1px solid #2C303A4D;
+		border-radius: 24px;
+		padding: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		text-align: left;
+		transition: transform 0.2s;
+	}
+	.feature-card:hover {
+		transform: translateY(-4px);
+	}
+	.feature-icon-wrapper {
+		width: 56px;
+		height: 56px;
+		border-radius: 50%;
+		background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 1.5rem;
+		box-shadow: 0 4px 20px rgba(236, 72, 153, 0.3);
+	}
+	.feature-icon {
+		width: 28px;
+		height: 28px;
+		object-fit: contain;
+		filter: brightness(0) invert(1);
+	}
+	.feature-title {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: #fff;
+		margin: 0 0 0.75rem;
+		line-height: 1.3;
+	}
+	.feature-description {
+		font-family: 'Inter', sans-serif;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 140%;
+		letter-spacing: -0.02em;
+		color: rgba(255, 255, 255, 0.7);
+		margin: 0;
+	}
+	@media (max-width: 1024px) {
+		.features-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media (max-width: 640px) {
+		.features-grid {
+			grid-template-columns: 1fr;
+		}
+		.feature-card {
+			padding: 1.5rem;
+		}
+	}
+</style>

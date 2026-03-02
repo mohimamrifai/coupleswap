@@ -1,0 +1,152 @@
+---
+import UsersThreeIcon from '../assets/UsersThree.png';
+import ChatsIcon from '../assets/Chats.png';
+import CalendarIcon from '../assets/calender.png';
+import AirplaneIcon from '../assets/AirplaneTilt.png';
+
+const features = [
+	{
+		title: 'AI Match Recommendation',
+		desc: 'Smart algorithms analyze compatibility based on interests, preferences, and location',
+		icon: UsersThreeIcon,
+	},
+	{
+		title: 'Real-Time Messaging',
+		desc: 'Secure, instant messaging with photo sharing and match notifications',
+		icon: ChatsIcon,
+	},
+	{
+		title: 'Reviews & Ratings',
+		desc: 'Community-powered reputation system with verified reviews',
+		icon: CalendarIcon,
+	},
+	{
+		title: 'Partner Invites',
+		desc: 'Couples can invite partners to create joint profiles seamlessly',
+		icon: AirplaneIcon,
+	},
+];
+---
+
+<section class="features-grid-section" id="features-grid">
+	<div class="container">
+		<div class="header">
+			<h2 class="title">Powerful Features for <br /> Authentic Connections</h2>
+			<p class="subtitle">Advance technology meets lifestyle dating with <br /> features designed for your succes</p>
+		</div>
+		
+		<div class="grid">
+			{features.map((feature) => (
+				<div class="feature-card" style={`--icon-url: url(${feature.icon.src})`}>
+					<div class="icon-wrapper">
+						<div class="icon"></div>
+					</div>
+					<h3 class="card-title">{feature.title}</h3>
+					<p class="card-desc">{feature.desc}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.features-grid-section {
+		padding: 6rem 1.5rem;
+		background: #0a0a0a;
+		text-align: center;
+	}
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	.header {
+		margin-bottom: 4rem;
+	}
+	.title {
+		font-family: 'Inter', sans-serif;
+		font-weight: 700;
+		font-size: 40px;
+		line-height: 1.1;
+		color: #fff;
+		margin-bottom: 1.5rem;
+	}
+	.subtitle {
+		font-family: 'Inter', sans-serif;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.7);
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 2rem;
+	}
+	.feature-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	.icon-wrapper {
+		width: 40px;
+		height: 40px;
+		margin-bottom: 1.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.icon {
+		width: 32px;
+		height: 32px;
+		object-fit: contain;
+		/* Apply gradient effect to the icon if possible, or just use it as is. 
+		   The reference shows gradient icons. We can use mask-image like in PlatformSection. */
+		background: linear-gradient(296.38deg, #6E2CA1 5.71%, #E3449B 88.36%);
+		-webkit-mask-image: var(--icon-url);
+		mask-image: var(--icon-url);
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+		-webkit-mask-size: contain;
+		mask-size: contain;
+	}
+	
+	.card-title {
+		font-family: 'Inter', sans-serif;
+		font-weight: 700;
+		font-size: 20px;
+		color: #fff;
+		margin-bottom: 0.75rem;
+	}
+	.card-desc {
+		font-family: 'Inter', sans-serif;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.5;
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	@media (max-width: 900px) {
+		.grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 3rem 1.5rem;
+		}
+	}
+	@media (max-width: 600px) {
+		.grid {
+			grid-template-columns: 1fr;
+		}
+		.title br, .subtitle br {
+			display: none;
+		}
+		.title {
+			font-size: 28px;
+		}
+		.subtitle {
+			font-size: 14px;
+		}
+		
+	}
+</style>

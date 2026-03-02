@@ -1,0 +1,215 @@
+---
+import dashboardImage from '../assets/Dashboard.png';
+import usersIcon from '../assets/UsersThree.png';
+import chatsIcon from '../assets/Chats.png';
+import airplaneIcon from '../assets/AirplaneTilt.png';
+import calender from '../assets/calender.png';
+
+const platformStats = [
+	{ icon: usersIcon, number: '5000+', label: 'Active Members' },
+	{ icon: chatsIcon, number: '50K+', label: 'Messages Daily' },
+	{ icon: calender, number: '200+', label: 'Events Monthly' },
+	{ icon: airplaneIcon, number: '150+', label: 'Travel Groups' },
+];
+
+---
+<section class="platform" id="platform">
+	<div class="platform-inner">
+		<div class="badge">
+			<span class="badge-dot"></span>
+			<span>Live Platform Preview</span>
+		</div>
+		<h2 class="section-title">Experience The <br /> <span class="text-gradient">Complete Lifestyle Platform.</span></h2>
+		<p class="section-subtitle">Real profiles, safer fun, no surprises—real, safe, and private.</p>
+		<div class="mockup-wrap">
+			<div class="accent-glow"></div>
+			<div class="overlay-gradient"></div>
+			<img src={dashboardImage.src} alt="Platform Dashboard Preview" class="dashboard-img" />
+		</div>
+		<div class="stats-row">
+			{platformStats.map((s) => (
+				<div class="stat-item" style={`--icon-url: url(${s.icon.src})`}>
+					<div class="stat-icon-wrapper">
+						<div class="icon-gradient-overlay"></div>
+						<img src={s.icon.src} alt={s.label} class="stat-icon-original" style="opacity: 0;" />
+					</div>
+					<div class="stat-content">
+						<span class="stat-num">{s.number}</span>
+						<span class="stat-text">{s.label}</span>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.platform {
+		padding: 4rem 1.5rem;
+		background: #0a0a0a;
+	}
+	.platform-inner {
+		max-width: 1200px;
+		margin: 0 auto;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+		background: #1a1520;
+		border-radius: 9999px;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: #fff;
+		margin-bottom: 1rem;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+	}
+	.badge-dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: #ec4899;
+	}
+	.platform .section-title {
+		margin: 0 0 0.5rem;
+		font-size: clamp(1.75rem, 3vw, 2.25rem);
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		color: #fff;
+	}
+	.text-gradient {
+		background: linear-gradient(275.85deg, #6E2CA1 0%, #E3449B 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		color: transparent;
+	}
+	.platform .section-subtitle {
+		margin: 0 0 5rem;
+		font-size: 1.0625rem;
+		color: rgba(255, 255, 255, 0.75);
+	}
+	.mockup-wrap {
+		margin-bottom: 2.5rem;
+		border-radius: 16px;
+		width: 100%;
+		max-width: 1000px;
+		position: relative;
+		z-index: 1;
+	}
+	.accent-glow {
+		position: absolute;
+		top: -40px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		max-width: 600px;
+		height: 100px;
+		background: var(--Secondary-500, #6E2CA1);
+		filter: blur(80px);
+		opacity: 0.6;
+		z-index: -1;
+		pointer-events: none;
+		border-radius: 50%;
+	}
+	.overlay-gradient {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, transparent 0%, #0a0a0a 90%, #0a0a0a 100%);
+		z-index: 2;
+		pointer-events: none;
+	}
+	.dashboard-img {
+		width: 100%;
+		height: auto;
+		display: block;
+		position: relative;
+		z-index: 1;
+	}
+	.stats-row {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 2rem;
+		text-align: center;
+		width: 100%;
+		max-width: 1000px;
+		margin-top: 2rem;
+	}
+	.stat-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
+	}
+	.stat-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.25rem;
+	}
+	.stat-icon-wrapper {
+		width: 36px;
+		height: 36px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+	}
+	.icon-gradient-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+		mask-image: var(--icon-url);
+		-webkit-mask-image: var(--icon-url);
+		mask-size: contain;
+		-webkit-mask-size: contain;
+		mask-repeat: no-repeat;
+		-webkit-mask-repeat: no-repeat;
+		mask-position: center;
+		-webkit-mask-position: center;
+	}
+	.stat-icon-original {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+	.stat-num {
+		font-size: 2rem;
+		font-weight: 700;
+		color: #fff;
+		line-height: 1.2;
+	}
+	.stat-text {
+		font-size: 1rem;
+		font-weight: 400;
+		color: rgba(255, 255, 255, 0.6);
+		font-family: 'Inter', sans-serif;
+	}
+	@media (max-width: 768px) {
+		.stats-row {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.5rem;
+		}
+		.stat-num {
+			font-size: 1.5rem;
+		}
+		.stat-text {
+			font-size: 0.875rem;
+		}
+		.stat-icon-wrapper {
+			width: 28px;
+			height: 28px;
+		}
+	}
+</style>

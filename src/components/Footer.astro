@@ -1,0 +1,326 @@
+---
+import logoImage from '../assets/logo.webp';
+---
+<footer class="footer" id="footer">
+	<div class="footer-inner">
+		<div class="footer-top">
+			<div class="brand">
+				<a href="/" class="logo-link">
+					<img src={logoImage.src} alt="CoupleSwap" class="logo-img" />
+				</a>
+				<p class="tagline">The trusted platform for verified couples and singles to safely explore the lifestyle together.</p>
+				<div class="social">
+					<a href="#instagram" aria-label="Instagram">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+					</a>
+					<a href="#facebook" aria-label="Facebook">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+					</a>
+					<a href="#linkedin" aria-label="LinkedIn">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+					</a>
+					<a href="#youtube" aria-label="YouTube">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+					</a>
+				</div>
+			</div>
+			
+			<div class="footer-nav">
+				<div class="col">
+					<h4 class="col-title">Menu</h4>
+					<a href="#features">Features</a>
+					<a href="#how-it-works">How it Works</a>
+					<a href="#pricing">Pricing</a>
+				</div>
+				<div class="col">
+					<h4 class="col-title">Company</h4>
+					<a href="#about">About Us</a>
+					<a href="#safety">Safety</a>
+					<a href="#contact">Contact</a>
+				</div>
+				<div class="col">
+					<h4 class="col-title">Headquarters</h4>
+					<p class="address">1341 Poplar Street,<br/>Chicago, IL 60606</p>
+					<p class="phone">(785) 712-6532</p>
+				</div>
+			</div>
+
+			<button id="scrollTopBtn" class="scroll-top" aria-label="Scroll to top">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="12" y1="19" x2="12" y2="5"></line>
+					<polyline points="5 12 12 5 19 12"></polyline>
+				</svg>
+			</button>
+		</div>
+
+		<div class="footer-bottom">
+			<div class="bottom-legal">
+				<a href="#privacy">Privacy Policy</a>
+				<span class="dot">•</span>
+				<a href="#terms">Term of Conditions</a>
+			</div>
+
+			<p class="copyright">© 2025 CoupleSwap. All content is protected and created by its users. 18+ only.</p>
+		</div>
+	</div>
+</footer>
+
+<script>
+	const scrollTopBtn = document.getElementById('scrollTopBtn');
+	
+	if (scrollTopBtn) {
+		// Show button after scrolling down 2 sections (approx 200vh)
+		window.addEventListener('scroll', () => {
+			if (window.scrollY > window.innerHeight * 2) {
+				scrollTopBtn.classList.add('visible');
+			} else {
+				scrollTopBtn.classList.remove('visible');
+			}
+		});
+
+		scrollTopBtn.addEventListener('click', () => {
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+		});
+	}
+</script>
+
+<style>
+	.footer {
+		background: #0a0a0a;
+		padding: 5rem 1.5rem 2rem;
+		color: #fff;
+		border-top: 1px solid rgba(255, 255, 255, 0.05);
+		position: relative;
+		overflow: hidden;
+	}
+	/* Grid Background Effect */
+	.footer::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		opacity: 0.4;
+		pointer-events: none;
+	}
+	.footer-inner {
+		max-width: 1200px;
+		margin: 0 auto;
+		position: relative;
+		z-index: 1;
+	}
+	.footer-top {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 4rem;
+		margin-bottom: 4rem;
+	}
+	.brand {
+		max-width: 300px;
+	}
+	.logo-link {
+		display: inline-block;
+		margin-bottom: 1.5rem;
+	}
+	.logo-img {
+		height: 32px;
+		width: auto;
+		object-fit: contain;
+	}
+	.tagline {
+		font-size: 0.9375rem;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.6);
+		margin: 0 0 2rem;
+	}
+	
+	.footer-nav {
+		display: flex;
+		gap: 4rem;
+		flex: 1;
+		justify-content: center;
+		margin: 0 4rem;
+	}
+	.col {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	.col-title {
+			font-size: 1rem;
+			font-weight: 600;
+			color: #fff;
+			margin: 0 0 0.5rem;
+			width: 100%;
+		}
+		.address {
+			width: 100%;
+		}
+	.col a, .col p {
+		font-size: 0.875rem;
+		color: rgba(255, 255, 255, 0.6);
+		text-decoration: none;
+		line-height: 1.5;
+		margin: 0;
+	}
+	.col a:hover {
+		color: #fff;
+	}
+	
+	.scroll-top {
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.1);
+		border: none;
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: background 0.2s, opacity 0.3s ease, visibility 0.3s ease;
+		flex-shrink: 0;
+		opacity: 0;
+		visibility: hidden;
+	}
+	.scroll-top.visible {
+		opacity: 1;
+		visibility: visible;
+	}
+	.scroll-top:hover {
+		background: rgba(255, 255, 255, 0.2);
+	}
+
+	.divider {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin: 0 0 4rem;
+		opacity: 0.6;
+	}
+	.line {
+		flex: 1;
+		height: 1px;
+		border-top: 1px dashed rgba(255, 255, 255, 0.2);
+	}
+	.divider-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.footer-bottom {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 2rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		padding-top: 2rem;
+		margin-top: 2rem;
+	}
+	.social {
+		display: flex;
+		gap: 1rem;
+	}
+	.social a {
+		color: rgba(255, 255, 255, 0.6);
+		transition: color 0.2s;
+	}
+	.social a:hover {
+		color: #fff;
+		transform: translateY(-2px);
+	}
+	.social a[aria-label="Instagram"]:hover { color: #E1306C; }
+	.social a[aria-label="Facebook"]:hover { color: #1877F2; }
+	.social a[aria-label="LinkedIn"]:hover { color: #0077B5; }
+	.social a[aria-label="YouTube"]:hover { color: #FF0000; }
+	
+	.bottom-legal {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		font-size: 0.8125rem;
+		color: rgba(255, 255, 255, 0.5);
+	}
+	.bottom-legal a {
+		color: rgba(255, 255, 255, 0.5);
+		text-decoration: none;
+	}
+	.bottom-legal a:hover {
+		color: #fff;
+	}
+	.dot {
+		font-size: 0.5rem;
+	}
+
+	.copyright {
+		font-size: 0.8125rem;
+		color: rgba(255, 255, 255, 0.4);
+		margin: 0;
+		text-align: right;
+	}
+
+	@media (max-width: 900px) {
+		.footer-top {
+			flex-direction: column;
+			align-items: flex-start;
+			text-align: left;
+			gap: 3rem;
+		}
+		.brand {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		.footer-nav {
+			width: 100%;
+			margin: 0;
+			justify-content: flex-start;
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+		.col {
+			align-items: flex-start;
+			gap: 0.75rem;
+		}
+		.scroll-top {
+			position: fixed;
+			bottom: 2rem;
+			right: 2rem;
+			z-index: 50;
+			background: rgba(255, 255, 255, 0.15);
+			backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			margin-top: 0;
+			opacity: 0;
+			visibility: hidden;
+		}
+		.scroll-top.visible {
+			opacity: 1;
+			visibility: visible;
+		}
+		.footer-inner {
+			position: static;
+		}
+		.footer-bottom {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 1.5rem;
+			text-align: left;
+		}
+		.social {
+			justify-content: flex-start;
+		}
+		.bottom-legal {
+			justify-content: flex-start;
+		}
+		.copyright {
+			text-align: left;
+		}
+	}
+</style>

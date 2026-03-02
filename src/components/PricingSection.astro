@@ -1,0 +1,334 @@
+---
+import icons from '../assets/icon.png';
+import FadersHorizontalIcon from '../assets/FadersHorizontal.png';
+import iconprofilepricing from '../assets/iconprofilepricing.png';
+import iconimage from '../assets/iconimage.png';
+import SealCheck from '../assets/SealCheck.png';
+import IconMail from '../assets/icon-mail.png';
+import GridBg from '../assets/Grid.png';
+
+const features = [
+	{ icon: icons, text: 'Unlimited verified couple chats' },
+	{ icon: FadersHorizontalIcon, text: 'Advanced filters & GPS search' },
+	{ icon: iconprofilepricing, text: 'ID & liveness verification' },
+	{ icon: iconimage, text: 'Photo-sharing with dual consent' },
+	{ icon: SealCheck, text: 'Verified-only exclusive access' },
+	{ icon: IconMail, text: 'Full messaging inbox access' }
+];
+---
+<section class="pricing" id="pricing">
+	<div class="pricing-inner">
+		<div class="badge">
+			<span class="badge-dot"></span>
+			<span>Limited Time Offer</span>
+		</div>
+		<h2 class="section-title">Ready to Start Your Adventure</h2>
+		<p class="section-subtitle">Join thousand of verified couples and singles in the lifestyle community</p>
+		<div class="price-card">
+			<div class="price-main">
+				<span class="currency">$</span>
+				<span class="amount">49</span>
+				<span class="period">.95 <span class="month">/Month</span></span>
+			</div>
+			<p class="price-note">Cancel anytime. No hidden fees or lock-in period</p>
+			
+			<div class="price-badges">
+				<div class="price-badge">
+					<div class="check-icon-wrapper-small">
+						<svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="check-icon-small">
+							<polyline points="20 6 9 17 4 12" />
+						</svg>
+					</div>
+					<span>No Signup Fees</span>
+				</div>
+				<div class="price-badge">
+					<div class="check-icon-wrapper-small">
+						<svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="check-icon-small">
+							<polyline points="20 6 9 17 4 12" />
+						</svg>
+					</div>
+					<span>Cancel Anytime</span>
+				</div>
+			</div>
+
+			<div class="price-features-grid">
+				{features.map((feature) => (
+					<div class="price-feature-item" style={`--icon-url: url(${feature.icon.src})`}>
+						<div class="feature-icon-wrap">
+							<div class="feature-icon"></div>
+						</div>
+						<span>{feature.text}</span>
+					</div>
+				))}
+			</div>
+			
+			<a href="#join" class="btn-cta">Start Your Adventure</a>
+			<p class="trust-text">Trusted by 5,000+ verified members • ★ 4.8 Ratings</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.pricing {
+		padding: 6rem 1rem;
+		background: #0a0a0a;
+		position: relative;
+		overflow: hidden;
+	}
+	/* Grid Background Effect */
+	.pricing::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: url('../assets/Grid.png');
+		background-size: cover;
+		background-position: center;
+		opacity: 0.8;
+		pointer-events: none;
+	}
+
+	.pricing-inner {
+		max-width: 1200px;
+		margin: 0 auto;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+		z-index: 1;
+	}
+	.badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+		background: #1a1520;
+		border-radius: 9999px;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: #fff;
+		margin-bottom: 1.5rem;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+	}
+	.badge-dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: #ec4899;
+	}
+	.section-title {
+		margin: 0 0 1rem;
+		font-family: 'Inter', sans-serif;
+		font-weight: 700;
+		font-size: 40px;
+		line-height: 1.1;
+		color: #fff;
+	}
+	.section-subtitle {
+		margin: 0 0 4rem;
+		font-family: 'Inter', sans-serif;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.6);
+	}
+	.price-card {
+		max-width: 540px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 3rem;
+		background: #0d0d0d;
+		border: 1px solid rgba(168, 85, 247, 0.3);
+		border-radius: 24px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+		box-shadow: 0 0 100px rgba(168, 85, 247, 0.1);
+		box-sizing: border-box;
+	}
+	/* Glow effect behind card */
+	.price-card::before {
+		content: '';
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		right: -2px;
+		bottom: -2px;
+		border-radius: 24px;
+		background: linear-gradient(180deg, rgba(168, 85, 247, 0.2) 0%, transparent 100%);
+		z-index: -1;
+	}
+
+	.price-main {
+		display: flex;
+		align-items: baseline;
+		gap: 0.25rem;
+		margin-bottom: 0.5rem;
+	}
+	.currency {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: #fff;
+	}
+	.amount {
+		font-size: 4.5rem;
+		font-weight: 700;
+		color: #fff;
+		line-height: 1;
+	}
+	.period {
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: rgba(255, 255, 255, 0.6);
+	}
+	.month {
+		font-size: 1rem;
+		font-weight: 400;
+	}
+	.price-note {
+		margin: 0 0 1.5rem;
+		font-size: 0.875rem;
+		color: rgba(255, 255, 255, 0.5);
+	}
+	.price-badges {
+		display: flex;
+		gap: 1.5rem;
+		margin-bottom: 2.5rem;
+	}
+	.price-badge {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: #fff;
+	}
+	.check-icon-wrapper-small {
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		background: linear-gradient(296.38deg, #6E2CA1 5.71%, #E3449B 88.36%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.check-icon-small {
+		width: 8px;
+		height: 8px;
+		color: #fff;
+	}
+
+	.price-features-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem 2rem;
+		width: 100%;
+		margin-bottom: 2.5rem;
+		text-align: left;
+	}
+	.price-feature-item {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		font-size: 0.875rem;
+		color: rgba(255, 255, 255, 0.8);
+	}
+	.feature-icon-wrap {
+		width: 24px;
+		height: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+	.feature-icon {
+		width: 16px;
+		height: 16px;
+		background: linear-gradient(296.38deg, #6E2CA1 5.71%, #E3449B 88.36%);
+		-webkit-mask-image: var(--icon-url);
+		mask-image: var(--icon-url);
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+		-webkit-mask-size: contain;
+		mask-size: contain;
+	}
+
+	.btn-cta {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		padding: 0.8rem;
+		background: linear-gradient(90deg, #ec4899 0%, #a855f7 100%);
+		color: #fff;
+		font-size: 1rem;
+		font-weight: 600;
+		text-decoration: none;
+		border-radius: 12px;
+		transition: opacity 0.2s;
+		margin-bottom: 1rem;
+	}
+	.btn-cta:hover {
+		opacity: 0.9;
+	}
+	.trust-text {
+		font-size: 0.75rem;
+		color: rgba(255, 255, 255, 0.4);
+		margin: 0;
+	}
+
+	@media (max-width: 768px) {
+		.pricing {
+			padding: 4rem 1rem;
+		}
+		.section-title {
+			font-size: 28px;
+		}
+		.section-subtitle {
+			font-size: 14px;
+		}
+		.price-card {
+			padding: 2rem;
+			align-items: center;
+			text-align: center;
+		}
+		.price-main {
+			justify-content: center;
+		}
+		.currency {
+			font-size: 2rem;
+		}
+		.amount {
+			font-size: 3rem;
+		}
+		.period {
+			font-size: 1.25rem;
+		}
+		.price-badges {
+			flex-direction: column;
+			gap: 0.75rem;
+			margin-bottom: 2rem;
+			align-items: center;
+		}
+		.price-features-grid {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+			text-align: left;
+		}
+		.price-feature-item {
+			font-size: 14px;
+		}
+		.btn-cta {
+			width: 100%;
+			max-width: 100%;
+			font-size: 14px;
+			padding: 0.875rem;
+		}
+	}
+</style>

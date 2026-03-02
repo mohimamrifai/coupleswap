@@ -1,0 +1,398 @@
+---
+import chatsImage from '../assets/Chats.png';
+import sealCheckImage from '../assets/SealCheck.png';
+import mapPinImage from '../assets/MapPin.png';
+import peopleOne from '../assets/people-one.png';
+import peopleTwo from '../assets/people-two.png';
+import peopleThree from '../assets/people-three.png';
+import peopleFour from '../assets/people-four.png';
+---
+<section class="hero">
+	<div class="hero-inner">
+		<div class="hero-left">
+			<div class="accent-gradient"></div>
+			<div class="badge">
+				<svg class="badge-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+					<circle cx="9" cy="7" r="4" />
+					<path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+				</svg>
+				<span>500+ Verified Members</span>
+			</div>
+			<h1 class="headline">
+				<span class="headline-white">The Premiere.</span>
+				<br />
+				<span class="headline-accent">Lifestyle Platform.</span>
+			</h1>
+			<p class="description">
+				Connect with verified couples and vetted singles in a safe, discreet environment. Our mandatory verification ensures authentic connections every time.
+			</p>
+			<div class="cta-row">
+				<a href="#join" class="btn-cta">Start Your Adventure</a>
+				<div class="pricing-block">
+					<div class="price">$49.95/Month</div>
+					<div class="price-note">One price. No hidden fees. Cancel anytime.</div>
+				</div>
+			</div>
+			<div class="features-row">
+				<span class="feature-item">
+					<svg class="check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+						<polyline points="20 6 9 17 4 12" />
+					</svg>
+					No Signup Fees
+				</span>
+				<span class="feature-item">
+					<svg class="check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+						<polyline points="20 6 9 17 4 12" />
+					</svg>
+					Cancel Anytime
+				</span>
+			</div>
+		</div>
+		<div class="hero-right">
+			<div class="cards-panel">
+				<div class="stat-card">
+					<div class="card-icon-wrapper">
+						<img src={chatsImage.src} width="24" height="24" alt="Chats" class="card-icon-img" />
+					</div>
+					<div class="card-stat">
+						<span class="card-number">83</span>
+						<span class="card-label">Couples Nearby</span>
+					</div>
+					<span class="card-dot" aria-hidden="true"></span>
+				</div>
+				<div class="stat-card">
+					<div class="card-icon-wrapper">
+						<img src={sealCheckImage.src} width="24" height="24" alt="Verified" class="card-icon-img" />
+					</div>
+					<div class="card-stat">
+						<span class="card-number">83</span>
+						<span class="card-label">Couples Nearby</span>
+					</div>
+					<svg class="card-badge" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+				</div>
+				<div class="stat-card">
+					<div class="card-icon-wrapper">
+						<img src={mapPinImage.src} width="24" height="24" alt="Location" class="card-icon-img" />
+					</div>
+					<div class="card-stat">
+						<span class="card-number">83</span>
+						<span class="card-label">Couples Nearby</span>
+					</div>
+					<div class="avatar-stack">
+						<img src={peopleOne.src} width="28" height="28" alt="User 1" class="av" />
+						<img src={peopleTwo.src} width="28" height="28" alt="User 2" class="av" />
+						<img src={peopleThree.src} width="28" height="28" alt="User 3" class="av" />
+						<img src={peopleFour.src} width="28" height="28" alt="User 4" class="av" />
+						<span class="av more">+10</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		padding: 150px 1.5rem 4rem;
+		background:
+			linear-gradient(to bottom, transparent 60%, #0a0a0a 100%),
+			radial-gradient(ellipse 100% 100% at 50% 50%, rgba(161, 48, 110, 0.25) 0%, rgba(110, 44, 161, 0.2) 50%, transparent 75%),
+			#0a0a0a;
+	}
+	.hero-inner {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: center;
+	}
+	.hero-left {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		position: relative;
+	}
+	.accent-gradient {
+		position: absolute;
+		width: 500px;
+		height: 500px;
+		left: 0;
+		bottom: -300px;
+		background: var(--Secondary-500, #6E2CA1);
+		filter: blur(150px);
+		opacity: 0.4;
+		border-radius: 50%;
+		z-index: 0;
+		pointer-events: none;
+	}
+	.badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.625rem 1.25rem;
+		background: rgba(26, 21, 32, 0.75);
+		border-radius: 9999px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		font-size: 1rem;
+		font-weight: 400;
+		color: #ffffff;
+		width: fit-content;
+		backdrop-filter: blur(100px);
+		box-shadow: 0px 8px 24px 0px #00000029;
+	}
+	.badge-icon {
+		color: #ec4899;
+		flex-shrink: 0;
+		width: 20px;
+		height: 20px;
+	}
+	.headline {
+		margin: 0;
+		font-size: clamp(2.25rem, 4vw, 3.5rem);
+		font-weight: 700;
+		line-height: 1.15;
+		letter-spacing: -0.02em;
+	}
+	.headline-white {
+		color: #fff;
+	}
+	.headline-accent {
+		background: linear-gradient(275.85deg, #6E2CA1 0%, #E3449B 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+	.description {
+		margin: 0;
+		font-size: 1.0625rem;
+		line-height: 1.6;
+		color: var(--Font-Secondary, #95959E);
+		max-width: 480px;
+	}
+	.cta-row {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		flex-wrap: wrap;
+		margin-top: 40px;
+	}
+	.btn-cta {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 12px 24px;
+		gap: 8px;
+		background: linear-gradient(276.82deg, #6E2CA1 -29.16%, #E3449B 100%);
+		color: #fff;
+		font-size: 1rem;
+		font-weight: 600;
+		text-decoration: none;
+		border-radius: 8px;
+		transition: opacity 0.2s, transform 0.05s;
+		box-shadow: 0px 8px 24px 0px #EB489C29;
+		backdrop-filter: blur(100px);
+	}
+	.btn-cta:hover {
+		opacity: 0.95;
+	}
+	.pricing-block {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+	.price {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: #fff;
+	}
+	.price-note {
+		font-size: 0.8125rem;
+		color: rgba(255, 255, 255, 0.7);
+	}
+	.features-row {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+		flex-wrap: wrap;
+		margin-top: 40px;
+	}
+	.feature-item {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.9375rem;
+		color: rgba(255, 255, 255, 0.9);
+	}
+	.check {
+		flex-shrink: 0;
+		background: linear-gradient(308.72deg, #6E2CA1 2.35%, #E3449B 100%);
+		border-radius: 50%;
+		padding: 2px;
+		color: white;
+	}
+	.check path, .check polyline {
+		stroke: currentColor;
+	}
+	.hero-right {
+		display: flex;
+		justify-content: flex-end;
+	}
+	.cards-panel {
+		width: 100%;
+		max-width: 480px;
+		background: rgba(30, 20, 45, 0.4);
+		border: 1px solid rgba(168, 85, 247, 0.2);
+		border-radius: 16px;
+		padding: 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+	}
+	.stat-card {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 1rem 1.25rem;
+		background: rgba(30, 20, 45, 0.6);
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.06);
+		position: relative;
+	}
+	.card-icon-wrapper {
+		width: 48px;
+		height: 48px;
+		background: rgba(236, 72, 153, 0.2);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+	.card-icon-img {
+		width: 24px;
+		height: 24px;
+		object-fit: contain;
+	}
+	.card-stat {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 0.125rem;
+	}
+	.card-number {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: #fff;
+	}
+	.card-label {
+		font-size: 0.8125rem;
+		color: rgba(255, 255, 255, 0.75);
+	}
+	.card-dot {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 1.25rem;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: #ec4899;
+		box-shadow: 0 0 10px rgba(236, 72, 153, 0.6);
+		flex-shrink: 0;
+	}
+	.card-badge {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 1.25rem;
+		color: #ec4899;
+		opacity: 0.9;
+		flex-shrink: 0;
+	}
+	.avatar-stack {
+		display: flex;
+		align-items: center;
+		margin-left: -6px;
+	}
+	.av {
+		width: 28px;
+		height: 28px;
+		border-radius: 50%;
+		background: #1e142d;
+		border: 2px solid #1e142d;
+		margin-left: -8px;
+		flex-shrink: 0;
+		object-fit: cover;
+	}
+	.av.more {
+		width: 28px;
+		height: 28px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.625rem;
+		font-weight: 600;
+		color: #fff;
+		background: linear-gradient(275.85deg, #6E2CA1 0%, #E3449B 100%);
+		margin-left: -8px;
+	}
+	@media (max-width: 900px) {
+		.hero-inner {
+			grid-template-columns: 1fr;
+			text-align: center;
+		}
+		.hero-left {
+			align-items: center;
+		}
+		.badge {
+			margin: 0 auto;
+		}
+		.description {
+			text-align: center;
+		}
+		.cta-row {
+			justify-content: center;
+		}
+		.features-row {
+			justify-content: center;
+		}
+		.hero-right {
+			justify-content: center;
+			margin-top: 2rem;
+		}
+		.cards-panel {
+			margin: 0 auto;
+			width: 100%;
+			max-width: 480px;
+		}
+	}
+	@media (max-width: 480px) {
+		.cards-panel {
+			padding: 1rem;
+		}
+		.stat-card {
+			padding: 0.75rem 1rem;
+			gap: 0.75rem;
+		}
+		.card-icon-wrapper {
+			width: 40px;
+			height: 40px;
+		}
+		.card-icon-img {
+			width: 20px;
+			height: 20px;
+		}
+		.card-number {
+			font-size: 1.125rem;
+		}
+		.card-label {
+			font-size: 0.75rem;
+		}
+		.card-dot, .card-badge {
+			right: 1rem;
+		}
+	}
+</style>

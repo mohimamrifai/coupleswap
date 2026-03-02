@@ -1,0 +1,241 @@
+---
+import QuoteIcon from '../assets/kutip.png';
+import Avatar1 from '../assets/testione.png';
+import Avatar2 from '../assets/testitwo.png';
+import Avatar3 from '../assets/testithree.png';
+
+const testimonials = [
+	{ 
+		quote: 'So simple is very understanding and masters the field of small business, making it easier for us to establish further communication, related to the fund distribution strategy that we developed.', 
+		author: 'Glen & Jessica', 
+		from: 'from USA',
+		avatar: Avatar1
+	},
+	{ 
+		quote: 'So simple is very understanding and masters the field of small business, making it easier for us to establish further communication, related to the fund distribution strategy that we developed.', 
+		author: 'Yuka & Michell', 
+		from: 'from Canada',
+		avatar: Avatar2
+	},
+	{ 
+		quote: 'So simple is very understanding and masters the field of small business, making it easier for us to establish further communication, related to the fund distribution strategy that we developed.', 
+		author: 'Tierison & Grace', 
+		from: 'from Mexico',
+		avatar: Avatar3
+	},
+];
+---
+<section class="testimonials" id="testimonials">
+	<div class="testimonials-inner">
+		<div class="badge">
+			<span class="badge-dot"></span>
+			<span>Testimonials</span>
+		</div>
+		<h2 class="section-title">What Members Say</h2>
+		<p class="section-subtitle">See how couples around the world connect, share, and grow through CoupleSwap.</p>
+		<div class="cards">
+			{testimonials.map((t) => (
+				<blockquote class="card">
+					<div class="stars" aria-label="5 stars">
+						{[1,2,3,4,5].map(() => (
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+						))}
+					</div>
+					<p class="quote">{t.quote}</p>
+					<footer class="author-wrapper">
+						<div class="author">
+							<div class="avatar">
+								<img src={t.avatar.src} alt={t.author} />
+							</div>
+							<div class="author-info">
+								<strong>{t.author}</strong>
+								<span class="from">{t.from}</span>
+							</div>
+						</div>
+						<div class="quote-icon">
+							<img src={QuoteIcon.src} alt="Quote" />
+						</div>
+					</footer>
+				</blockquote>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.testimonials {
+		padding: 6rem 1.5rem;
+		background: #0a0a0a;
+	}
+	.testimonials-inner {
+		max-width: 1200px;
+		margin: 0 auto;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+		background: #1a1520;
+		border-radius: 9999px;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: #fff;
+		margin-bottom: 1.5rem;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+	}
+	.badge-dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: #ec4899;
+	}
+	.section-title {
+		margin: 0 0 1.5rem;
+		font-family: 'Inter', sans-serif;
+		font-weight: 700;
+		font-size: 40px;
+		line-height: 1.1;
+		color: #fff;
+	}
+	.section-subtitle {
+		margin: 0 0 4rem;
+		font-family: 'Inter', sans-serif;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.7);
+		max-width: 600px;
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+		text-align: left;
+		width: 100%;
+	}
+	.card {
+		margin: 0;
+		padding: 2.5rem;
+		background: #0d0d0d;
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-radius: 24px;
+		display: flex;
+		flex-direction: column;
+		transition: transform 0.2s, border-color 0.2s;
+		position: relative;
+	}
+	.card:hover {
+		transform: translateY(-4px);
+		border-color: rgba(168, 85, 247, 0.25);
+	}
+	.card:nth-child(2) {
+		transform: translateY(-2rem);
+	}
+	.card:nth-child(2) .quote {
+		color: #fff;
+	}
+	.card:nth-child(2):hover {
+		transform: translateY(calc(-2rem - 4px));
+	}
+	.stars {
+		display: flex;
+		gap: 4px;
+		color: #FF9E0C;
+		margin-bottom: 1.5rem;
+	}
+	.quote {
+		margin: 0 0 2rem;
+		font-family: 'Inter', sans-serif;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.6);
+	}
+	.author-wrapper {
+		margin-top: auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.author {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+	.avatar {
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		overflow: hidden;
+		flex-shrink: 0;
+	}
+	.avatar img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	.author-info {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		margin-left: 0.5rem;
+	}
+	.author-info strong {
+		display: block;
+		color: #fff;
+		font-family: 'Inter', sans-serif;
+		font-weight: 600;
+		font-size: 16px;
+	}
+	.from {
+		font-family: 'Inter', sans-serif;
+		font-size: 13px;
+		color: rgba(255, 255, 255, 0.5);
+	}
+	.quote-icon {
+		position: absolute;
+		bottom: 2rem;
+		right: 2rem;
+	}
+	.quote-icon img {
+		width: 48px;
+		height: 48px;
+		opacity: 0.1;
+		object-fit: contain;
+	}
+
+	@media (max-width: 1024px) {
+		.cards {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		.card:nth-child(2) {
+			transform: none;
+		}
+		.card:nth-child(2) .quote {
+			color: rgba(255, 255, 255, 0.6);
+		}
+		.card:nth-child(2):hover {
+			transform: translateY(-4px);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.section-title {
+			font-size: 28px;
+		}
+		.section-subtitle {
+			font-size: 14px;
+		}
+		.cards {
+			grid-template-columns: 1fr;
+		}
+		.card {
+			padding: 1.5rem;
+		}
+	}
+</style>

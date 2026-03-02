@@ -1,0 +1,165 @@
+---
+import UsersThreeIcon from '../assets/users.png';
+import ChatsIcon from '../assets/Chats.png';
+import StarIcon from '../assets/Star.png';
+
+const dynamics = [
+	{
+		title: 'Couple-to-Couple',
+		desc: 'Meet and connect with other like-minded couples in your area. Use our filters to find pairs who share your interests for a dinner date or a full swap.',
+		icon: UsersThreeIcon,
+	},
+	{
+		title: 'Singles & Couples',
+		desc: 'Are you a couple looking for a unicorn, or a single wanting to join a pair? Our platform makes it easy and safe for vetted singles and couples to connect.',
+		icon: ChatsIcon,
+	},
+	{
+		title: 'Events & Socials',
+		desc: 'Go beyond the app. Get access to exclusive lifestyle parties, resort takeovers, and local club nights to mingle with the community in a fun, relaxed setting.',
+		icon: StarIcon,
+	},
+];
+---
+
+<section class="dynamic" id="dynamic">
+	<div class="dynamic-inner">
+		<div class="dynamic-text">
+			<h2 class="section-title">Find Your <br /> Perfect Dynamic</h2>
+			<p class="section-desc">
+				Whether you're seeking couple-to-couple connections, looking for vetted singles, or wanting to explore lifestyle events, we've got you covered.
+			</p>
+		</div>
+		<div class="dynamic-cards">
+			{dynamics.map((d) => (
+				<div class="card">
+					<div class="card-icon-wrapper">
+						<img src={d.icon.src} alt={d.title} class="card-icon" />
+					</div>
+					<h3 class="card-title">{d.title}</h3>
+					<p class="card-desc">{d.desc}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.dynamic {
+		padding: 4rem 1.5rem;
+		background: #0a0a0a;
+	}
+	.dynamic-inner {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 4rem;
+		align-items: center;
+	}
+	.dynamic-text {
+		max-width: 100%;
+	}
+	.section-title {
+		margin: 0 0 1.5rem;
+		font-family: 'Inter', sans-serif;
+		font-weight: 700;
+		font-size: 40px;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		color: #fff;
+	}
+	.section-desc {
+		margin: 0;
+		font-family: 'Inter', sans-serif;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.7);
+	}
+	.dynamic-cards {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+	}
+	.card {
+		background: #0d0d0d;
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-radius: 24px;
+		padding: 2rem 1rem;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		transition: transform 0.2s, border-color 0.2s;
+		height: auto;
+		justify-content: flex-start;
+	}
+	.card:hover {
+		transform: translateY(-4px);
+		border-color: rgba(168, 85, 247, 0.25);
+	}
+	.card-icon-wrapper {
+		width: 64px;
+		height: 64px;
+		border-radius: 50%;
+		background: linear-gradient(296.38deg, #6E2CA1 5.71%, #E3449B 88.36%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 2rem;
+		box-shadow: 0 0 40px rgba(227, 68, 155, 0.3);
+	}
+	.card-icon {
+		width: 32px;
+		height: 32px;
+		object-fit: contain;
+		filter: brightness(0) invert(1);
+	}
+	.card-title {
+		margin: 0 0 1rem;
+		font-family: 'Inter', sans-serif;
+		font-weight: 700;
+		font-size: 18px;
+		color: #fff;
+	}
+	.card-desc {
+		margin: 0;
+		font-family: 'Inter', sans-serif;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	@media (max-width: 1024px) {
+		.dynamic-inner {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+		.dynamic-text {
+			max-width: 100%;
+			text-align: center;
+		}
+		.dynamic-cards {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.dynamic-cards {
+			grid-template-columns: 1fr;
+		}
+		.section-title {
+			font-size: 28px;
+		}
+		.card-icon-wrapper {
+			width: 48px;
+			height: 48px;
+			margin-bottom: 1.5rem;
+		}
+		.card-icon {
+			width: 24px;
+			height: 24px;
+		}
+	}
+</style>
