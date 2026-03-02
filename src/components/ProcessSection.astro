@@ -8,17 +8,17 @@ const steps = [
 ---
 <section class="process" id="how-it-works">
 	<div class="process-inner">
-		<div class="badge">
+		<div class="badge" data-aos="fade-down">
 			<span class="badge-dot"></span>
 			<span>Simple Process</span>
 		</div>
-		<h2 class="section-title">Your Journey to Connection.</h2>
-		<p class="section-description">
+		<h2 class="section-title" data-aos="fade-up">Your Journey to Connection.</h2>
+		<p class="section-description" data-aos="fade-up" data-aos-delay="100">
 			Get started in just four easy steps
 		</p>
 		<div class="steps-row">
-			{steps.map((step) => (
-				<div class="step">
+			{steps.map((step, index) => (
+				<div class="step" data-aos="fade-up" data-aos-delay={index * 100 + 200}>
 					<div class="step-node">
 						<span class="step-num">{step.num}</span>
 					</div>

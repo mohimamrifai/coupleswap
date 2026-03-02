@@ -10,9 +10,19 @@
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 		<meta name="generator" content={Astro.generator} />
 		<title>CoupleSwap — The Premiere Lifestyle Platform</title>
+		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 	</head>
 	<body>
 		<slot />
+		<script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
+		<script is:inline>
+			AOS.init({
+				duration: 800,
+				easing: 'ease-in-out',
+				once: true,
+				mirror: false
+			});
+		</script>
 	</body>
 </html>
 

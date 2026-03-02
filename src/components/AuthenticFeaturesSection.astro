@@ -73,15 +73,15 @@ const features = [
 ---
 <section class="authentic-features" id="authentic-features">
 	<div class="section-inner">
-		<div class="badge">
+		<div class="badge" data-aos="fade-down">
 			<span class="badge-dot"></span>
 			<span>Powerful Features</span>
 		</div>
-		<h2 class="section-title">Built With You in Mind.</h2>
-		<p class="section-subtitle">Every feature designed to make your lifestyle journey safer, easier, and more exciting.</p>
+		<h2 class="section-title" data-aos="fade-up">Built With You in Mind.</h2>
+		<p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Every feature designed to make your lifestyle journey safer, easier, and more exciting.</p>
 		<div class="grid">
-			{features.map((f) => (
-				<div class="card">
+			{features.map((f, index) => (
+				<div class="card" data-aos="fade-up" data-aos-delay={index * 100 + 200}>
 					<div class="card-icon">
 						<img src={f.icon.src} alt={f.title} class="feature-icon-img" />
 					</div>

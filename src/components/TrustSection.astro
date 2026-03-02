@@ -29,17 +29,17 @@ const features = [
 ---
 <section class="trust" id="trust">
 	<div class="trust-inner">
-		<div class="badge">
+		<div class="badge" data-aos="fade-down">
 			<span class="badge-dot"></span>
 			<span>Why Choose Us</span>
 		</div>
-		<h2 class="section-title">5,000 Couples <br/> Trust CoupleSwap.</h2>
-		<p class="section-description">
+		<h2 class="section-title" data-aos="fade-up">5,000 Couples <br/> Trust CoupleSwap.</h2>
+		<p class="section-description" data-aos="fade-up" data-aos-delay="100">
 			Real profiles, safer fun, no surprises—real, safe, and private.
 		</p>
 		<div class="features-grid">
-			{features.map((feature) => (
-				<div class="feature-card">
+			{features.map((feature, index) => (
+				<div class="feature-card" data-aos="fade-up" data-aos-delay={index * 100 + 200}>
 					<div class="feature-icon-wrapper">
 						<img src={feature.icon.src} width="32" height="32" alt={feature.title} class="feature-icon" />
 					</div>

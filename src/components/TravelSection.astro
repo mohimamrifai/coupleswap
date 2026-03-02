@@ -19,18 +19,18 @@ const travelFeatures = [
 <section class="travel" id="travel">
 	<div class="travel-inner">
 		<div class="travel-content">
-			<div class="badge">
+			<div class="badge" data-aos="fade-down">
 				<span class="badge-dot"></span>
 				<span>Powerful Features</span>
 			</div>
-			<h2 class="section-title">Travel Together <br /> <span class="text-gradient">Explore the World.</span></h2>
-			<p class="section-desc">
+			<h2 class="section-title" data-aos="fade-up">Travel Together <br /> <span class="text-gradient">Explore the World.</span></h2>
+			<p class="section-desc" data-aos="fade-up" data-aos-delay="100">
 				Plan and join lifestyle trips with verified members. From resort takeovers to exotic destinations, create unforgettable experiences with like-minded adventurers.
 			</p>
 			
 			<div class="feature-list">
-				{travelFeatures.map((feature) => (
-					<div class="feature-item">
+				{travelFeatures.map((feature, index) => (
+					<div class="feature-item" data-aos="fade-up" data-aos-delay={index * 100 + 200}>
 						<div class="check-icon-wrapper">
 							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="check-icon">
 								<polyline points="20 6 9 17 4 12" />
@@ -44,7 +44,7 @@ const travelFeatures = [
 				))}
 			</div>
 		</div>
-		<div class="travel-image-col">
+		<div class="travel-image-col" data-aos="fade-left" data-aos-delay="300">
 			<img src={travelImage.src} alt="Travel Destination" class="destination-image" />
 		</div>
 	</div>

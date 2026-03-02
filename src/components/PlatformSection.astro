@@ -15,20 +15,20 @@ const platformStats = [
 ---
 <section class="platform" id="platform">
 	<div class="platform-inner">
-		<div class="badge">
+		<div class="badge" data-aos="fade-down">
 			<span class="badge-dot"></span>
 			<span>Live Platform Preview</span>
 		</div>
-		<h2 class="section-title">Experience The <br /> <span class="text-gradient">Complete Lifestyle Platform.</span></h2>
-		<p class="section-subtitle">Real profiles, safer fun, no surprises—real, safe, and private.</p>
-		<div class="mockup-wrap">
+		<h2 class="section-title" data-aos="fade-up">Experience The <br /> <span class="text-gradient">Complete Lifestyle Platform.</span></h2>
+		<p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Real profiles, safer fun, no surprises—real, safe, and private.</p>
+		<div class="mockup-wrap" data-aos="fade-up" data-aos-delay="200">
 			<div class="accent-glow"></div>
 			<div class="overlay-gradient"></div>
 			<img src={dashboardImage.src} alt="Platform Dashboard Preview" class="dashboard-img" />
 		</div>
 		<div class="stats-row">
-			{platformStats.map((s) => (
-				<div class="stat-item" style={`--icon-url: url(${s.icon.src})`}>
+			{platformStats.map((s, index) => (
+				<div class="stat-item" style={`--icon-url: url(${s.icon.src})`} data-aos="fade-up" data-aos-delay={index * 100 + 300}>
 					<div class="stat-icon-wrapper">
 						<div class="icon-gradient-overlay"></div>
 						<img src={s.icon.src} alt={s.label} class="stat-icon-original" style="opacity: 0;" />

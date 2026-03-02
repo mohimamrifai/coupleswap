@@ -25,14 +25,14 @@ const dynamics = [
 <section class="dynamic" id="dynamic">
 	<div class="dynamic-inner">
 		<div class="dynamic-text">
-			<h2 class="section-title">Find Your <br /> Perfect Dynamic</h2>
-			<p class="section-desc">
+			<h2 class="section-title" data-aos="fade-up">Find Your <br /> Perfect Dynamic</h2>
+			<p class="section-desc" data-aos="fade-up" data-aos-delay="100">
 				Whether you're seeking couple-to-couple connections, looking for vetted singles, or wanting to explore lifestyle events, we've got you covered.
 			</p>
 		</div>
 		<div class="dynamic-cards">
-			{dynamics.map((d) => (
-				<div class="card">
+			{dynamics.map((d, index) => (
+				<div class="card" data-aos="fade-up" data-aos-delay={index * 100 + 200}>
 					<div class="card-icon-wrapper">
 						<img src={d.icon.src} alt={d.title} class="card-icon" />
 					</div>

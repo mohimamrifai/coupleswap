@@ -27,15 +27,15 @@ const testimonials = [
 ---
 <section class="testimonials" id="testimonials">
 	<div class="testimonials-inner">
-		<div class="badge">
+		<div class="badge" data-aos="fade-down">
 			<span class="badge-dot"></span>
 			<span>Testimonials</span>
 		</div>
-		<h2 class="section-title">What Members Say</h2>
-		<p class="section-subtitle">See how couples around the world connect, share, and grow through CoupleSwap.</p>
+		<h2 class="section-title" data-aos="fade-up">What Members Say</h2>
+		<p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">See how couples around the world connect, share, and grow through CoupleSwap.</p>
 		<div class="cards">
-			{testimonials.map((t) => (
-				<blockquote class="card">
+			{testimonials.map((t, index) => (
+				<blockquote class="card" data-aos="fade-up" data-aos-delay={index * 100 + 200}>
 					<div class="stars" aria-label="5 stars">
 						{[1,2,3,4,5].map(() => (
 							<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>

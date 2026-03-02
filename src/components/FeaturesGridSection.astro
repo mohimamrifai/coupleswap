@@ -31,13 +31,13 @@ const features = [
 <section class="features-grid-section" id="features-grid">
 	<div class="container">
 		<div class="header">
-			<h2 class="title">Powerful Features for <br /> Authentic Connections</h2>
-			<p class="subtitle">Advance technology meets lifestyle dating with <br /> features designed for your succes</p>
+			<h2 class="title" data-aos="fade-up">Powerful Features for <br /> Authentic Connections</h2>
+			<p class="subtitle" data-aos="fade-up" data-aos-delay="100">Advance technology meets lifestyle dating with <br /> features designed for your succes</p>
 		</div>
 		
 		<div class="grid">
-			{features.map((feature) => (
-				<div class="feature-card" style={`--icon-url: url(${feature.icon.src})`}>
+			{features.map((feature, index) => (
+				<div class="feature-card" style={`--icon-url: url(${feature.icon.src})`} data-aos="fade-up" data-aos-delay={index * 100 + 200}>
 					<div class="icon-wrapper">
 						<div class="icon"></div>
 					</div>
