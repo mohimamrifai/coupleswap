@@ -137,10 +137,22 @@ const steps = [
 	}
 	@media (max-width: 900px) {
 		.steps-row {
+			position: relative;
 			flex-direction: column;
 			align-items: flex-start;
-			padding-left: 2rem;
+			padding-left: 2.5rem;
 			gap: 2rem;
+		}
+		.steps-row::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: calc(2.5rem + 28px);
+			width: 2px;
+			background-image: linear-gradient(to bottom, #E3449B 50%, rgba(255, 255, 255, 0) 0%);
+			background-size: 2px 8px;
+			background-repeat: repeat-y;
 		}
 		.step {
 			flex-direction: row;
@@ -162,6 +174,18 @@ const steps = [
 			max-width: none;
 			padding-top: 0;
 			padding-left: 0;
+		}
+		.step:last-child::after {
+			content: '';
+			position: absolute;
+			left: 28px;
+			top: 28px;
+			bottom: 0;
+			width: 10px;
+			transform: translateX(-50%);
+			background: #0a0a0a;
+			z-index: 1;
+			display: block;
 		}
 	}
 </style>

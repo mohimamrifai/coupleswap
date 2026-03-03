@@ -35,7 +35,7 @@ const features = [
 			<p class="subtitle" data-aos="fade-up" data-aos-delay="100">Advance technology meets lifestyle dating with <br /> features designed for your succes</p>
 		</div>
 		
-		<div class="grid">
+		<div class="grid desktop-grid">
 			{features.map((feature, index) => (
 				<div class="feature-card" style={`--icon-url: url(${feature.icon.src})`} data-aos="fade-up" data-aos-delay={index * 100 + 200}>
 					<div class="icon-wrapper">
@@ -46,8 +46,41 @@ const features = [
 				</div>
 			))}
 		</div>
+		<div class="features-grid-swiper">
+			<div class="swiper features-grid-swiper-instance">
+				<div class="swiper-wrapper">
+					{features.map((feature) => (
+						<div class="swiper-slide">
+							<div class="feature-card" style={`--icon-url: url(${feature.icon.src})`}>
+								<div class="icon-wrapper">
+									<div class="icon"></div>
+								</div>
+								<h3 class="card-title">{feature.title}</h3>
+								<p class="card-desc">{feature.desc}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
 	</div>
 </section>
+
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		if (window.Swiper) {
+			new Swiper('.features-grid-swiper-instance', {
+				slidesPerView: 1,
+				spaceBetween: 16,
+				pagination: {
+					el: '.features-grid-swiper-instance .swiper-pagination',
+					clickable: true,
+				},
+			});
+		}
+	});
+</script>
 
 <style>
 	.features-grid-section {
@@ -134,9 +167,22 @@ const features = [
 			gap: 3rem 1.5rem;
 		}
 	}
+	
+	.features-grid-swiper {
+		display: none;
+		width: 100%;
+	}
+	.features-grid-swiper-instance {
+		width: 100%;
+		padding-bottom: 2rem;
+	}
+
 	@media (max-width: 600px) {
-		.grid {
-			grid-template-columns: 1fr;
+		.grid.desktop-grid {
+			display: none;
+		}
+		.features-grid-swiper {
+			display: block;
 		}
 		.title br, .subtitle br {
 			display: none;
@@ -148,5 +194,31 @@ const features = [
 			font-size: 14px;
 		}
 		
+	}
+</style>
+
+<style is:global>
+	.features-grid-swiper-instance {
+		--swiper-pagination-color: #ec4899;
+		--swiper-pagination-bullet-inactive-color: #ffffff;
+		--swiper-pagination-bullet-inactive-opacity: 0.3;
+		--swiper-pagination-bullet-size: 10px;
+		--swiper-pagination-bullet-horizontal-gap: 6px;
+	}
+
+	.features-grid-swiper-instance .swiper-pagination-bullet {
+		background: var(--swiper-pagination-bullet-inactive-color) !important;
+		opacity: var(--swiper-pagination-bullet-inactive-opacity) !important;
+		width: var(--swiper-pagination-bullet-size) !important;
+		height: var(--swiper-pagination-bullet-size) !important;
+		margin: 0 var(--swiper-pagination-bullet-horizontal-gap) !important;
+		transition: all 0.3s ease;
+	}
+
+	.features-grid-swiper-instance .swiper-pagination-bullet-active {
+		background: var(--swiper-pagination-color) !important;
+		opacity: 1 !important;
+		width: 24px !important;
+		border-radius: 5px !important;
 	}
 </style>

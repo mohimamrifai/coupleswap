@@ -79,7 +79,7 @@ const features = [
 		</div>
 		<h2 class="section-title" data-aos="fade-up">Built With You in Mind.</h2>
 		<p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Every feature designed to make your lifestyle journey safer, easier, and more exciting.</p>
-		<div class="grid">
+		<div class="grid desktop-grid">
 			{features.map((f, index) => (
 				<div class="card" data-aos="fade-up" data-aos-delay={index * 100 + 200}>
 					<div class="card-icon">
@@ -102,8 +102,53 @@ const features = [
 				</div>
 			))}
 		</div>
+		<div class="features-swiper">
+			<div class="swiper authentic-swiper">
+				<div class="swiper-wrapper">
+					{features.map((f) => (
+						<div class="swiper-slide">
+							<div class="card">
+								<div class="card-icon">
+									<img src={f.icon.src} alt={f.title} class="feature-icon-img" />
+								</div>
+								<h3 class="card-title">{f.title}</h3>
+								<p class="card-desc">{f.desc}</p>
+								<ul class="feature-list">
+									{f.list.map((item) => (
+										<li class="feature-item">
+											<div class="check-icon-wrapper">
+												<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4">
+													<polyline points="20 6 9 17 4 12" />
+												</svg>
+											</div>
+											<span>{item}</span>
+										</li>
+									))}
+								</ul>
+							</div>
+						</div>
+					))}
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
 	</div>
 </section>
+
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		if (window.Swiper) {
+			new Swiper('.authentic-swiper', {
+				slidesPerView: 1,
+				spaceBetween: 16,
+				pagination: {
+					el: '.authentic-swiper .swiper-pagination',
+					clickable: true,
+				},
+			});
+		}
+	});
+</script>
 
 <style>
 	.authentic-features {
@@ -239,9 +284,48 @@ const features = [
 			grid-template-columns: repeat(2, 1fr);
 		}
 	}
-	@media (max-width: 600px) {
-		.grid {
-			grid-template-columns: 1fr;
+	
+	.features-swiper {
+		display: none;
+		width: 100%;
+	}
+	.authentic-swiper {
+		width: 100%;
+		padding-bottom: 2rem;
+	}
+
+	@media (max-width: 640px) {
+		.grid.desktop-grid {
+			display: none;
 		}
+		.features-swiper {
+			display: block;
+		}
+	}
+</style>
+
+<style is:global>
+	.authentic-swiper {
+		--swiper-pagination-color: #ec4899;
+		--swiper-pagination-bullet-inactive-color: #ffffff;
+		--swiper-pagination-bullet-inactive-opacity: 0.3;
+		--swiper-pagination-bullet-size: 10px;
+		--swiper-pagination-bullet-horizontal-gap: 6px;
+	}
+
+	.authentic-swiper .swiper-pagination-bullet {
+		background: var(--swiper-pagination-bullet-inactive-color) !important;
+		opacity: var(--swiper-pagination-bullet-inactive-opacity) !important;
+		width: var(--swiper-pagination-bullet-size) !important;
+		height: var(--swiper-pagination-bullet-size) !important;
+		margin: 0 var(--swiper-pagination-bullet-horizontal-gap) !important;
+		transition: all 0.3s ease;
+	}
+
+	.authentic-swiper .swiper-pagination-bullet-active {
+		background: var(--swiper-pagination-color) !important;
+		opacity: 1 !important;
+		width: 24px !important;
+		border-radius: 5px !important;
 	}
 </style>

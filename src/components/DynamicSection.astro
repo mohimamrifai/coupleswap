@@ -30,7 +30,7 @@ const dynamics = [
 				Whether you're seeking couple-to-couple connections, looking for vetted singles, or wanting to explore lifestyle events, we've got you covered.
 			</p>
 		</div>
-		<div class="dynamic-cards">
+		<div class="dynamic-cards desktop-grid">
 			{dynamics.map((d, index) => (
 				<div class="card" data-aos="fade-up" data-aos-delay={index * 100 + 200}>
 					<div class="card-icon-wrapper">
@@ -41,8 +41,41 @@ const dynamics = [
 				</div>
 			))}
 		</div>
+		<div class="dynamic-swiper">
+			<div class="swiper dynamic-swiper-instance">
+				<div class="swiper-wrapper">
+					{dynamics.map((d) => (
+						<div class="swiper-slide">
+							<div class="card">
+								<div class="card-icon-wrapper">
+									<img src={d.icon.src} alt={d.title} class="card-icon" />
+								</div>
+								<h3 class="card-title">{d.title}</h3>
+								<p class="card-desc">{d.desc}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
 	</div>
 </section>
+
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		if (window.Swiper) {
+			new Swiper('.dynamic-swiper-instance', {
+				slidesPerView: 1,
+				spaceBetween: 16,
+				pagination: {
+					el: '.dynamic-swiper-instance .swiper-pagination',
+					clickable: true,
+				},
+			});
+		}
+	});
+</script>
 
 <style>
 	.dynamic {
@@ -144,10 +177,22 @@ const dynamics = [
 			grid-template-columns: repeat(3, 1fr);
 		}
 	}
+	
+	.dynamic-swiper {
+		display: none;
+		width: 100%;
+	}
+	.dynamic-swiper-instance {
+		width: 100%;
+		padding-bottom: 2rem;
+	}
 
 	@media (max-width: 768px) {
-		.dynamic-cards {
-			grid-template-columns: 1fr;
+		.dynamic-cards.desktop-grid {
+			display: none;
+		}
+		.dynamic-swiper {
+			display: block;
 		}
 		.section-title {
 			font-size: 28px;
@@ -161,5 +206,31 @@ const dynamics = [
 			width: 24px;
 			height: 24px;
 		}
+	}
+</style>
+
+<style is:global>
+	.dynamic-swiper-instance {
+		--swiper-pagination-color: #ec4899;
+		--swiper-pagination-bullet-inactive-color: #ffffff;
+		--swiper-pagination-bullet-inactive-opacity: 0.3;
+		--swiper-pagination-bullet-size: 10px;
+		--swiper-pagination-bullet-horizontal-gap: 6px;
+	}
+
+	.dynamic-swiper-instance .swiper-pagination-bullet {
+		background: var(--swiper-pagination-bullet-inactive-color) !important;
+		opacity: var(--swiper-pagination-bullet-inactive-opacity) !important;
+		width: var(--swiper-pagination-bullet-size) !important;
+		height: var(--swiper-pagination-bullet-size) !important;
+		margin: 0 var(--swiper-pagination-bullet-horizontal-gap) !important;
+		transition: all 0.3s ease;
+	}
+
+	.dynamic-swiper-instance .swiper-pagination-bullet-active {
+		background: var(--swiper-pagination-color) !important;
+		opacity: 1 !important;
+		width: 24px !important;
+		border-radius: 5px !important;
 	}
 </style>

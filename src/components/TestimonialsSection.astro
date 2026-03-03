@@ -33,7 +33,7 @@ const testimonials = [
 		</div>
 		<h2 class="section-title" data-aos="fade-up">What Members Say</h2>
 		<p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">See how couples around the world connect, share, and grow through CoupleSwap.</p>
-		<div class="cards">
+		<div class="cards desktop-grid">
 			{testimonials.map((t, index) => (
 				<blockquote class="card" data-aos="fade-up" data-aos-delay={index * 100 + 200}>
 					<div class="stars" aria-label="5 stars">
@@ -59,8 +59,57 @@ const testimonials = [
 				</blockquote>
 			))}
 		</div>
+		<div class="testimonials-swiper">
+			<div class="swiper testimonials-swiper-instance">
+				<div class="swiper-wrapper">
+					{testimonials.map((t) => (
+						<div class="swiper-slide">
+							<blockquote class="card">
+								<div class="stars" aria-label="5 stars">
+									{[1,2,3,4,5].map(() => (
+										<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+									))}
+								</div>
+								<p class="quote">{t.quote}</p>
+								<footer class="author-wrapper">
+									<div class="author">
+										<div class="avatar">
+											<img src={t.avatar.src} alt={t.author} />
+										</div>
+										<div class="author-info">
+											<strong>{t.author}</strong>
+											<span class="from">{t.from}</span>
+										</div>
+									</div>
+									<div class="quote-icon">
+										<img src={QuoteIcon.src} alt="Quote" />
+									</div>
+								</footer>
+							</blockquote>
+						</div>
+					))}
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
 	</div>
 </section>
+
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		if (window.Swiper) {
+			new Swiper('.testimonials-swiper-instance', {
+				slidesPerView: 1,
+				spaceBetween: 16,
+				autoHeight: true,
+				pagination: {
+					el: '.testimonials-swiper-instance .swiper-pagination',
+					clickable: true,
+				},
+			});
+		}
+	});
+</script>
 
 <style>
 	.testimonials {
@@ -224,7 +273,22 @@ const testimonials = [
 		}
 	}
 
-	@media (max-width: 768px) {
+	.testimonials-swiper {
+		display: none;
+		width: 100%;
+	}
+	.testimonials-swiper-instance {
+		width: 100%;
+		padding-bottom: 2rem;
+	}
+
+	@media (max-width: 640px) {
+		.cards.desktop-grid {
+			display: none;
+		}
+		.testimonials-swiper {
+			display: block;
+		}
 		.section-title {
 			font-size: 28px;
 		}
@@ -237,5 +301,31 @@ const testimonials = [
 		.card {
 			padding: 1.5rem;
 		}
+	}
+</style>
+
+<style is:global>
+	.testimonials-swiper-instance {
+		--swiper-pagination-color: #ec4899;
+		--swiper-pagination-bullet-inactive-color: #ffffff;
+		--swiper-pagination-bullet-inactive-opacity: 0.3;
+		--swiper-pagination-bullet-size: 10px;
+		--swiper-pagination-bullet-horizontal-gap: 6px;
+	}
+
+	.testimonials-swiper-instance .swiper-pagination-bullet {
+		background: var(--swiper-pagination-bullet-inactive-color) !important;
+		opacity: var(--swiper-pagination-bullet-inactive-opacity) !important;
+		width: var(--swiper-pagination-bullet-size) !important;
+		height: var(--swiper-pagination-bullet-size) !important;
+		margin: 0 var(--swiper-pagination-bullet-horizontal-gap) !important;
+		transition: all 0.3s ease;
+	}
+
+	.testimonials-swiper-instance .swiper-pagination-bullet-active {
+		background: var(--swiper-pagination-color) !important;
+		opacity: 1 !important;
+		width: 24px !important;
+		border-radius: 5px !important;
 	}
 </style>
