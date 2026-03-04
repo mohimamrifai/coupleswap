@@ -187,7 +187,19 @@ const dynamics = [
 		padding-bottom: 2rem;
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 640px) {
+		.dynamic {
+			padding: 2rem 1.5rem;
+		}
+		.dynamic-inner {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
+		.dynamic-text {
+			text-align: center;
+			margin-bottom: 1rem;
+		}
 		.dynamic-cards.desktop-grid {
 			display: none;
 		}
@@ -196,6 +208,11 @@ const dynamics = [
 		}
 		.section-title {
 			font-size: 28px;
+		}
+		.card {
+			padding: 1.5rem;
+			align-items: flex-start;
+			text-align: left;
 		}
 		.card-icon-wrapper {
 			width: 48px;
